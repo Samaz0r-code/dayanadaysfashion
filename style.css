@@ -1096,12 +1096,22 @@ p { max-width: 68ch; }
 .swiper-button-next {
   background: var(--clr-card);
   border: 1px solid var(--clr-border);
-  width: 44px !important;
-  height: 44px !important;
+  width: 50px !important; /* Un poco más grandes para mejor clic */
+  height: 50px !important;
   border-radius: 50%;
-  color: var(--clr-text-primary) !important;
-  transition: background var(--transition-fast), transform var(--transition-spring);
-  z-index: 20 !important;
+  color: #fff !important;
+  transition: all var(--transition-fast), transform var(--transition-spring);
+  z-index: 100 !important; /* Súper alto para ser siempre clicable */
+  pointer-events: auto !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.swiper-button-prev {
+  left: -25px !important; /* Hacia afuera */
+}
+
+.swiper-button-next {
+  right: -25px !important; /* Hacia afuera */
 }
 
 .swiper-button-prev:hover,
