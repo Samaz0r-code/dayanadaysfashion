@@ -730,6 +730,41 @@ const initFinalUtils = () => {
   });
 };
 
+/* ============ 13. COUNTDOWN TIMER ============ */
+const initCountdown = () => {
+  const targetDate = new Date('May 9, 2026 15:00:00 GMT-0400').getTime();
+  
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    
+    if (distance < 0) {
+      const topBar = document.getElementById('top-bar');
+      if (topBar) topBar.innerHTML = '<div class="container" style="text-align:center; font-weight:bold;">🚀 ¡YA ESTAMOS ABIERTOS! DISFRUTA LA COLECCIÓN 2027</div>';
+      return;
+    }
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    const dEl = document.getElementById('days');
+    const hEl = document.getElementById('hours');
+    const mEl = document.getElementById('minutes');
+    const sEl = document.getElementById('seconds');
+    
+    if (dEl) dEl.textContent = String(days).padStart(2, '0');
+    if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+    if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
+    if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
+  };
+  
+  // Actualizar cada segundo
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // Ejecución inicial
+};
+
 /* ============ INIT ============ */
 document.addEventListener('DOMContentLoaded', () => {
   console.log('%cDayanadaysfashion 2027', 'font-size:20px;font-weight:bold;color:#7c3aed;');
@@ -746,6 +781,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initChatbot();
   initClickTracking();
   initFinalUtils();
+  initCountdown();
   trackEvent('page_view', { page_title: document.title, page_location: window.location.href });
 });
 

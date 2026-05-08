@@ -156,6 +156,7 @@
   --container-max:  1240px;
   --container-pad:  clamp(1rem, 5vw, 2.5rem);
   --header-height:  72px;
+  --top-bar-height: 40px;
 }
 
 /* Reset moderno */
@@ -427,16 +428,102 @@ p { max-width: 68ch; }
 
 
 /* ============================================================
+   TOP BAR (ANUNCIO & COUNTDOWN)
+============================================================ */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--top-bar-height);
+  background: var(--grad-warm);
+  background-size: 200% 200%;
+  animation: gradientFlow 8s ease infinite;
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  overflow: hidden;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.top-bar__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  height: 100%;
+}
+
+.top-bar__text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.countdown {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.countdown__item {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.countdown__item span {
+  font-size: 0.95rem;
+  font-weight: 700;
+  min-width: 1.2ch;
+}
+
+.countdown__item small {
+  font-size: 0.65rem;
+  opacity: 0.8;
+  text-transform: lowercase;
+}
+
+.top-bar__link {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.9;
+  transition: opacity var(--dur-fast);
+}
+
+.top-bar__link:hover {
+  opacity: 1;
+}
+
+/* Ocultar elementos en móvil para ahorrar espacio */
+@media (max-width: 600px) {
+  .top-bar__text, .top-bar__link {
+    display: none;
+  }
+}
+
+
+/* ============================================================
    4. HEADER & NAVEGACIÓN
 ============================================================ */
 .header {
   position: fixed;
-  top: 0;
+  top: var(--top-bar-height);
   left: 0;
   width: 100%;
   z-index: 900;
   height: var(--header-height);
   background: transparent;
+  transition: top var(--dur-normal) var(--ease-standard);
 }
 
 #site-header {
