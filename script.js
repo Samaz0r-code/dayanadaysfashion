@@ -491,7 +491,7 @@ const Cart = {
         e.preventDefault();
         const name = btn.dataset.productName || btn.dataset.product || 'Producto';
         const phone = '584120000000'; // REEMPLAZAR con el número real de Dayanadaysfashion
-        const message = `Hola! Me interesa este modelo: ${name}. ¿Tienen disponibilidad?`;
+        const message = `¡Hola! Me interesa este calzado de la colección. ¿Tienen disponibilidad?`;
         const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         
         window.open(whatsappUrl, '_blank');

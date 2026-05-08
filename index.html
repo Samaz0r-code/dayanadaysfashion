@@ -4,11 +4,9 @@
   dayanadaysfashion.shop
   ============================================================
   PARA EL AGENTE DE IA (Antigravity / Gemini / Claude):
-
   ARCHIVO:    index.html — estructura HTML completa
   RELACIONADO: style.css (estilos), script.js (lógica)
   CONTEXTO:   Lee CONTEXT.md antes de modificar este archivo
-
   SECCIONES (en orden en el DOM):
     1. <header #header>       → Navegación fija
     2. <section #hero>        → Hero principal con gradiente
@@ -22,16 +20,14 @@
    10. <div #cartDrawer>      → Panel lateral carrito (flotante)
    11. <div #chatWidget>      → Chatbot flotante
    12. <div #cartToast>       → Toast de confirmación
-
   PARA AGREGAR UN PRODUCTO NUEVO:
     Copiar un <div class="swiper-slide"> existente dentro de
     .swiper-wrapper (#products) y actualizar:
       - src de la imagen + alt descriptivo
-      - data-product="Nombre" en el .btn-add-cart
+      - data-product="este calzado" en el .btn-add-cart
       - data-price="000" en el .btn-add-cart
       - .product-card__name, .product-card__price
       - .product-card__category (Running/Lifestyle/Trail/Training/Court)
-
   PARA AGREGAR UNA SECCIÓN NUEVA:
     - Usar clases .container, .section-eyebrow, .section-title
     - Respetar las variables CSS de :root en style.css
@@ -40,37 +36,30 @@
 -->
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dayanadaysfashion — Tu Moda del Día a Día</title>
-
   <!-- Tema y Colores -->
   <meta name="theme-color" content="#06060f" />
   <meta name="color-scheme" content="dark" />
-
   <!-- Google Fonts: Bebas Neue (display) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet" />
-
   <!-- Preload Imagen Hero -->
   <link rel="preload" as="image"
     href="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=85&auto=format&fit=crop"
     fetchpriority="high" />
-
   <!-- Swiper.js CDN para el carrusel de productos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
   <!-- SEO Meta tags -->
   <meta name="description"
     content="Dayanadaysfashion — Moda femenina con estilo único. Tienda física en Mérida y envíos a toda Venezuela. Descubrí la nueva colección en dayanadaysfashion.shop" />
   <meta name="keywords" content="moda femenina, ropa mujer, zapatillas, accesorios, dayanadaysfashion" />
   <link rel="canonical" href="https://dayanadaysfashion.shop" />
-
   <!-- Open Graph -->
   <meta property="og:site_name" content="Dayanadaysfashion" />
   <meta property="og:locale" content="es_VE" />
@@ -79,13 +68,10 @@
     content="Descubrí la nueva colección de moda femenina. Tienda física en Mérida y envíos a toda Venezuela." />
   <meta property="og:url" content="https://dayanadaysfashion.shop" />
   <meta property="og:type" content="website" />
-
   <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
   <!-- ========================================================
        BARRA DE ANUNCIO / COUNTDOWN
   ======================================================== -->
@@ -101,7 +87,6 @@
       <a href="#newsletter" class="top-bar__link">Suscríbete para el drop ↓</a>
     </div>
   </div>
-
   <!-- ========================================================
        HEADER / NAVEGACIÓN
        Barra de navegación con logo de texto y enlaces.
@@ -111,7 +96,6 @@
       <a href="/" class="nav__logo" aria-label="Dayanadaysfashion - Inicio">
         <img src="images/logo-removebg-preview.png" alt="Logo de Dayanadaysfashion" class="nav__logo-img">
       </a>
-
       <!-- Menú desktop -->
       <ul class="nav__list" role="list">
         <li><a href="#hero" class="nav__link">Inicio</a></li>
@@ -120,7 +104,6 @@
         <li><a href="#why-us" class="nav__link">Nosotros</a></li>
         <li><a href="#testimonials" class="nav__link">Clientes</a></li>
       </ul>
-
       <div class="nav__actions">
         <button class="btn-icon" aria-label="Buscar productos">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -145,7 +128,6 @@
         </button>
       </div>
     </nav>
-
     <!-- Menú móvil -->
     <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true"
       aria-label="Menú de navegación">
@@ -158,8 +140,6 @@
       </ul>
     </div>
   </header>
-
-
   <main>
     <!-- ========================================================
          SECCIÓN HÉROE
@@ -171,32 +151,27 @@
       <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
       <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
       <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
-
       <div class="hero__container container">
         <!-- Columna izquierda: Copy y CTAs -->
         <div class="hero__content">
           <p class="hero__eyebrow reveal" data-reveal="fadeInUp" data-delay="0" style="animation-delay: 0ms;">Colección
             Exclusiva 2027</p>
-
           <h1 class="hero__title reveal" data-reveal="fadeInUp" data-delay="0"
             style="font-size: var(--fs-display-xl); animation-delay: 0ms;">
             Experimenta<br />
             el Poder<br />
             <span class="hero__title-accent">del Movimiento</span>
           </h1>
-
           <p class="hero__subtitle reveal" data-reveal="fadeInUp" data-delay="100" style="animation-delay: 100ms;">
             Moda que te inspira. Looks que te definen. Tienda física en Mérida y envíos a toda Venezuela.
             Cada paso, una declaración.
           </p>
-
           <div class="hero__actions">
             <a href="#productos" class="btn reveal" data-reveal="fadeInUp" data-delay="150"
               style="animation-delay: 150ms;" aria-label="Explorar la nueva colección">Explorar Ahora</a>
             <a href="#categorias" class="btn reveal" data-reveal="fadeInUp" data-delay="200"
               style="animation-delay: 200ms;">Ver Colección</a>
           </div>
-
           <!-- Métricas rápidas de confianza -->
           <div class="hero__stats reveal" data-reveal="fadeInUp" data-delay="250" style="animation-delay: 250ms;"
             aria-label="Estadísticas de la marca">
@@ -216,7 +191,6 @@
             </div>
           </div>
         </div>
-
         <!-- Columna derecha: Zapato principal -->
         <div class="hero__visual reveal" data-reveal="fadeInUp" data-delay="300" style="animation-delay: 300ms;"
           aria-hidden="true">
@@ -238,15 +212,12 @@
           </div>
         </div>
       </div>
-
       <!-- Indicador scroll hacia abajo -->
       <a href="#productos" class="scroll-indicator" aria-label="Desplazarse a productos">
         <span class="scroll-indicator__line"></span>
         <span class="scroll-indicator__label">Scroll</span>
       </a>
     </section>
-
-
     <!-- ========================================================
          SECCIÓN CARRUSEL DE PRODUCTOS DESTACADOS
          Tarjetas flotantes con imagen, nombre, precio y CTA.
@@ -263,11 +234,9 @@
               <path d="m12 5 7 7-7 7" />
             </svg></a>
         </div>
-
         <!-- Swiper Carousel -->
         <div class="swiper products-swiper" aria-label="Carrusel de productos destacados">
           <div class="swiper-wrapper" aria-live="polite" aria-label="8 productos encontrados">
-
             <!-- Producto 1: Nike -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -277,12 +246,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Apex Pro</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Apex Pro">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -293,7 +258,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 2: Adidas -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -302,12 +266,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Adidas</span>
-                  </div>
-                  <h3 class="product-card__name">Adidas Cloud Walker</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Adidas Cloud Walker">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -318,7 +278,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 3: Nike -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -327,12 +286,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Urban Pulse</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Urban Pulse">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -343,7 +298,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 4: Adidas -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -353,12 +307,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Adidas</span>
-                  </div>
-                  <h3 class="product-card__name">Adidas Zen Flow</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Adidas Zen Flow">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -369,7 +319,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 5: Nike -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -378,12 +327,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Aero Nova</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Aero Nova">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -394,7 +339,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 6: Nike -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -403,12 +347,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Luna Peak</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Luna Peak">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -419,7 +359,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 7: Adidas -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -428,12 +367,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Adidas</span>
-                  </div>
-                  <h3 class="product-card__name">Adidas Terra Edge</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Adidas Terra Edge">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -444,7 +379,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 8: New Balance -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -454,12 +388,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">New Balance</span>
-                  </div>
-                  <h3 class="product-card__name">New Balance Heritage</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="New Balance Heritage">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -470,7 +400,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 9: Nike Air Max Limited -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -480,12 +409,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Air Max Limited</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Air Max Limited">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -496,7 +421,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 10: Jordan Retro IV -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -506,12 +430,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Jordan</span>
-                  </div>
-                  <h3 class="product-card__name">Jordan Retro IV</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Jordan Retro IV">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -522,7 +442,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 11: Adidas Superstar Custom -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -531,12 +450,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Adidas</span>
-                  </div>
-                  <h3 class="product-card__name">Adidas Superstar Custom</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Adidas Superstar Custom">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -547,7 +462,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 12: Nike ZoomX Performance -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -556,12 +470,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike ZoomX Performance</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike ZoomX Performance">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -572,7 +482,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 13: New Balance 550 Lifestyle -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -581,12 +490,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">New Balance</span>
-                  </div>
-                  <h3 class="product-card__name">New Balance 550 Lifestyle</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="New Balance 550 Lifestyle">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -597,7 +502,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 14: Jordan High OG -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -607,12 +511,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Jordan</span>
-                  </div>
-                  <h3 class="product-card__name">Jordan High OG</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Jordan High OG">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -623,7 +523,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 15: Adidas Forum Low -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -632,12 +531,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Adidas</span>
-                  </div>
-                  <h3 class="product-card__name">Adidas Forum Low</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Adidas Forum Low">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -648,7 +543,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 16: Nike Dunk Low Style -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -657,12 +551,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Dunk Low Style</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Dunk Low Style">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -673,7 +563,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 17: Nike Air Force 1 Classic -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -682,12 +571,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Air Force 1 Classic</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Air Force 1 Classic">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -698,7 +583,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 18: Jordan Mid Premium -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -707,12 +591,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Jordan</span>
-                  </div>
-                  <h3 class="product-card__name">Jordan Mid Premium</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Jordan Mid Premium">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -723,7 +603,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 19: Nike React Vision -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -733,12 +612,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike React Vision</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike React Vision">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -749,7 +624,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 20: New Balance XC-72 -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -758,12 +632,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">New Balance</span>
-                  </div>
-                  <h3 class="product-card__name">New Balance XC-72</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="New Balance XC-72">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -774,7 +644,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 21: Nike Air Max 270 -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -783,12 +652,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Air Max 270</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Air Max 270">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -799,7 +664,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 22: Adidas NMD R1 -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -808,12 +672,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Adidas</span>
-                  </div>
-                  <h3 class="product-card__name">Adidas NMD R1</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Adidas NMD R1">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -824,7 +684,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 23: Nike Blazer Mid -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -833,12 +692,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Blazer Mid</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Blazer Mid">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -849,7 +704,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 24: Jordan 1 Low -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -858,12 +712,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Jordan</span>
-                  </div>
-                  <h3 class="product-card__name">Jordan 1 Low</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Jordan 1 Low">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -874,7 +724,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 25: Nike Cortez Classic -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -883,12 +732,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Cortez Classic</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Cortez Classic">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -899,7 +744,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 26: Adidas UltraBoost -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -909,12 +753,8 @@
                   <div class="product-card__badge product-card__badge--trending">Trending</div>
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Adidas</span>
-                  </div>
-                  <h3 class="product-card__name">Adidas UltraBoost</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Adidas UltraBoost">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -925,7 +765,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 27: New Balance 327 -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -934,12 +773,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">New Balance</span>
-                  </div>
-                  <h3 class="product-card__name">New Balance 327</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="New Balance 327">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -950,7 +785,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 28: Nike SB Dunk -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -959,12 +793,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike SB Dunk</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike SB Dunk">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -975,7 +805,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 29: Jordan 4 Retro Black -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -984,12 +813,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Jordan</span>
-                  </div>
-                  <h3 class="product-card__name">Jordan 4 Retro Black</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Jordan 4 Retro Black">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -1000,7 +825,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 30: Adidas Yeezy Style -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -1009,12 +833,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Adidas</span>
-                  </div>
-                  <h3 class="product-card__name">Adidas Yeezy Style</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Adidas Yeezy Style">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -1025,7 +845,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 31: Nike Huarache Ultra -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -1034,12 +853,8 @@
                     loading="lazy" width="300" height="400" />
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Nike</span>
-                  </div>
-                  <h3 class="product-card__name">Nike Huarache Ultra</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Nike Huarache Ultra">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -1050,7 +865,6 @@
                 </div>
               </article>
             </div>
-
             <!-- Producto 32: Jordan 11 Retro Jubilee -->
             <div class="swiper-slide">
               <article class="product-card" role="article">
@@ -1060,12 +874,8 @@
                   <div class="product-card__badge product-card__badge--new">Nuevo</div>
                 </div>
                 <div class="product-card__info">
-                  <div class="product-card__meta">
-                    <span class="product-card__category">Jordan</span>
-                  </div>
-                  <h3 class="product-card__name">Jordan 11 Retro Jubilee</h3>
                   <div class="product-card__footer">
-                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="Jordan 11 Retro Jubilee">
+                    <button class="btn-add-cart" aria-label="Ver detalles" data-product="este calzado">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -1076,9 +886,7 @@
                 </div>
               </article>
             </div>
-
           </div><!-- /.swiper-wrapper -->
-
           <!-- Navegación del carrusel -->
           <div class="swiper-button-prev" aria-label="Producto anterior"></div>
           <div class="swiper-button-next" aria-label="Producto siguiente"></div>
@@ -1086,8 +894,6 @@
         </div><!-- /.swiper -->
       </div>
     </section>
-
-
     <!-- ========================================================
          BANNER MEDIO: Texto de impacto con fondo invertido
     ======================================================== -->
@@ -1104,8 +910,6 @@
       </div>
       <div class="impact-banner__orb" aria-hidden="true"></div>
     </section>
-
-
     <!-- ========================================================
          SECCIÓN CATEGORÍAS
          Grid visual de categorías: Hombre, Mujer, Niños.
@@ -1117,9 +921,7 @@
           <h2 class="section-title reveal" data-reveal="fadeInUp" data-delay="0"
             style="font-size: var(--fs-h-xl); animation-delay: 0ms;">Encuentra Tu Estilo</h2>
         </div>
-
         <div class="categories__grid stagger-grid" role="list">
-
           <a href="/categoria/adidas" class="category-card reveal" role="listitem" aria-label="Ver marca: Adidas"
             data-reveal="fadeInUp" data-delay="0" style="animation-delay: 0ms;">
             <div class="category-card__image-wrap">
@@ -1131,7 +933,6 @@
               <span class="category-card__count">Originals & Performance</span>
             </div>
           </a>
-
           <a href="/categoria/nike" class="category-card category-card--tall reveal" role="listitem"
             aria-label="Ver marca: Nike" data-reveal="fadeInUp" data-delay="80" style="animation-delay: 80ms;">
             <div class="category-card__image-wrap">
@@ -1143,7 +944,6 @@
               <span class="category-card__count">Just Do It</span>
             </div>
           </a>
-
           <a href="/categoria/new-balance" class="category-card reveal" role="listitem" aria-label="Ver marca: New Balance"
             data-reveal="fadeInUp" data-delay="160" style="animation-delay: 160ms;">
             <div class="category-card__image-wrap">
@@ -1155,12 +955,9 @@
               <span class="category-card__count">Lifestyle Classics</span>
             </div>
           </a>
-
         </div>
       </div>
     </section>
-
-
     <!-- ========================================================
          SECCIÓN POR QUÉ ELEGIRNOS
          4 pilares de valor con iconos y descripciones.
@@ -1173,9 +970,7 @@
           <p class="section-desc">En Dayanadaysfashion, cada decisión está pensada para vos. Desde el primer clic hasta
             la puerta de tu casa.</p>
         </div>
-
         <div class="features-grid" role="list">
-
           <div class="feature-card" role="listitem">
             <div class="feature-card__icon" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -1189,7 +984,6 @@
             <p class="feature-card__desc">En todos los pedidos superiores a $100 USD. Entrega express disponible a toda
               Venezuela.</p>
           </div>
-
           <div class="feature-card" role="listitem">
             <div class="feature-card__icon" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -1203,7 +997,6 @@
             <p class="feature-card__desc">30 días para cambios sin preguntas. Tu satisfacción es nuestra garantía
               absoluta.</p>
           </div>
-
           <div class="feature-card" role="listitem">
             <div class="feature-card__icon" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -1216,7 +1009,6 @@
             <p class="feature-card__desc">Tendencias internacionales, materiales de calidad y diseño exclusivo para
               lucir única cada día.</p>
           </div>
-
           <div class="feature-card" role="listitem">
             <div class="feature-card__icon" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -1228,12 +1020,9 @@
             <p class="feature-card__desc">Materiales y manufactura garantizados. Porque la calidad no debería ser un
               privilegio.</p>
           </div>
-
         </div>
       </div>
     </section>
-
-
     <!-- ========================================================
          SECCIÓN TESTIMONIOS
          3 reseñas de clientes con avatar placeholder.
@@ -1244,9 +1033,7 @@
           <p class="section-eyebrow">Lo Que Dicen</p>
           <h2 class="section-title" id="testimonials-heading">Nuestros Clientes<br />Hablan</h2>
         </div>
-
         <div class="testimonials__grid">
-
           <blockquote class="testimonial-card testimonial-card--featured">
             <div class="testimonial-card__stars" aria-label="5 de 5 estrellas">
               ★★★★★
@@ -1264,7 +1051,6 @@
               </div>
             </footer>
           </blockquote>
-
           <blockquote class="testimonial-card">
             <div class="testimonial-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
             <p class="testimonial-card__quote">
@@ -1280,7 +1066,6 @@
               </div>
             </footer>
           </blockquote>
-
           <blockquote class="testimonial-card">
             <div class="testimonial-card__stars" aria-label="4 de 5 estrellas">★★★★☆</div>
             <p class="testimonial-card__quote">
@@ -1296,12 +1081,9 @@
               </div>
             </footer>
           </blockquote>
-
         </div>
       </div>
     </section>
-
-
     <!-- ========================================================
          SECCIÓN NEWSLETTER
          Formulario de suscripción con diseño contrastante.
@@ -1333,10 +1115,7 @@
         </div>
       </div>
     </section>
-
   </main>
-
-
   <!-- ========================================================
        FOOTER COMPLETO
        Navegación, redes sociales, métodos de pago.
@@ -1344,7 +1123,6 @@
   <footer class="footer" id="footer" role="contentinfo">
     <div class="container">
       <div class="footer__top">
-
         <!-- Columna: Marca -->
         <div class="footer__brand">
           <a href="/" class="nav__logo footer__logo" aria-label="Dayanadaysfashion inicio">
@@ -1386,7 +1164,6 @@
             </a>
           </div>
         </div>
-
         <!-- Columna: Compras -->
         <nav class="footer__nav" aria-label="Navegación: Compras">
           <h3 class="footer__nav-title">Compras</h3>
@@ -1399,7 +1176,6 @@
             <li><a href="#">Colecciones Limitadas</a></li>
           </ul>
         </nav>
-
         <!-- Columna: Ayuda -->
         <nav class="footer__nav" aria-label="Navegación: Ayuda">
           <h3 class="footer__nav-title">Ayuda</h3>
@@ -1411,7 +1187,6 @@
             <li><a href="#">Contacto</a></li>
           </ul>
         </nav>
-
         <!-- Columna: Legal -->
         <nav class="footer__nav" aria-label="Navegación: Legal">
           <h3 class="footer__nav-title">Compañía & Legal</h3>
@@ -1423,13 +1198,10 @@
             <li><a href="#">Trabaja con Nosotros</a></li>
           </ul>
         </nav>
-
       </div><!-- /.footer__top -->
-
       <div class="footer__bottom">
         <small class="footer__copy">© <span id="footer-year">2027</span> Dayanadaysfashion. Todos los derechos
           reservados.</small>
-
         <!-- Métodos de pago -->
         <div class="payment-methods" aria-label="Métodos de pago aceptados">
           <span class="payment-badge">VISA</span>
@@ -1439,18 +1211,14 @@
           <span class="payment-badge">Apple Pay</span>
           <span class="payment-badge">Crypto</span>
         </div>
-
         <div class="footer__legal" aria-label="Enlaces legales secundarios">
           <a href="#">Privacidad</a>
           <a href="#">Términos</a>
           <a href="#">Cookies</a>
         </div>
       </div>
-
     </div>
   </footer>
-
-
   <!-- ========================================================
        WIDGET DE CHATBOT FLOTANTE
        Se posiciona en la esquina inferior derecha.
@@ -1458,7 +1226,6 @@
   ======================================================== -->
   <div class="chat-widget" id="chatWidget" role="dialog" aria-label="Chat de soporte Dayanadaysfashion"
     aria-hidden="true">
-
     <!-- Ventana de chat (oculta por defecto) -->
     <div class="chat-window" id="chatWindow" aria-live="polite">
       <header class="chat-header">
@@ -1478,12 +1245,10 @@
           </svg>
         </button>
       </header>
-
       <!-- Área de mensajes -->
       <div class="chat-messages" id="chatMessages" role="log" aria-label="Historial de mensajes">
         <!-- Los mensajes se inyectan dinámicamente con JS -->
       </div>
-
       <!-- Respuestas rápidas -->
       <div class="quick-replies" id="quickReplies" aria-label="Opciones de respuesta rápida">
         <button class="quick-reply-btn" data-message="Rastrear mi pedido">📦 Rastrear pedido</button>
@@ -1491,7 +1256,6 @@
         <button class="quick-reply-btn" data-message="Información sobre tallas">📏 Guía de tallas</button>
         <button class="quick-reply-btn" data-message="Hablar con un agente">💬 Hablar con agente</button>
       </div>
-
       <!-- Input del usuario -->
       <form class="chat-input-area" id="chatForm" novalidate aria-label="Enviar mensaje al chat">
         <label for="chatInput" class="visually-hidden">Escribe tu mensaje</label>
@@ -1506,7 +1270,6 @@
         </button>
       </form>
     </div>
-
     <!-- Botón flotante para abrir/cerrar el chat -->
     <button class="chat-toggle" id="chatToggle" aria-label="Abrir chat de soporte" aria-expanded="false">
       <span class="chat-toggle__icon chat-toggle__icon--open" aria-hidden="true">
@@ -1524,10 +1287,7 @@
       <!-- Notificación de mensaje no leído -->
       <span class="chat-notification" id="chatNotification" aria-label="1 mensaje nuevo">1</span>
     </button>
-
   </div><!-- /.chat-widget -->
-
-
   <!-- Toast de confirmación de carrito -->
   <div class="cart-toast" id="cartToast" role="status" aria-live="polite" aria-atomic="true" hidden>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1536,14 +1296,11 @@
     </svg>
     <span id="cartToastMsg">Añadido al carrito</span>
   </div>
-
-
   <!-- =====================================================
        DRAWER DEL CARRITO
        Panel lateral deslizable con resumen de compra.
   ====================================================== -->
   <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
-
   <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Carrito de compras" aria-hidden="true">
     <div class="cart-drawer__header">
       <h2 class="cart-drawer__title">Tu Carrito</h2>
@@ -1576,10 +1333,8 @@
         onclick="closeCartDrawer()">Ver Colección</a>
     </div>
   </aside>
-
   <!-- Scripts: Swiper primero, luego el script personalizado -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
-
 </html>
