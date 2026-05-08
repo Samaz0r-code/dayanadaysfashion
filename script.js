@@ -485,16 +485,18 @@ const Cart = {
     document.getElementById('cartDrawerClose')?.addEventListener('click', () => this.closeDrawer());
     document.getElementById('cartOverlay')?.addEventListener('click', () => this.closeDrawer());
     
-    // Botones de "Agregar al carrito"
+    // Botones de "Ver Detalles / WhatsApp"
     document.querySelectorAll('.btn-add-cart').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.productId || btn.dataset.product?.replace(/\s/g, '-').toLowerCase() || String(Date.now());
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const name = btn.dataset.productName || btn.dataset.product || 'Producto';
-        const price = parseFloat(btn.dataset.productPrice || btn.dataset.price) || 0;
-        const emojis = { Running: '🏃', Lifestyle: '✨', Trail: '⛰️', Training: '💪', Court: '🏀' };
-        const emoji = emojis[btn.dataset.category] || '👟';
-
-        this.add({ id, name, price, emoji });
+        const phone = '584120000000'; // REEMPLAZAR con el número real de Dayanadaysfashion
+        const message = `Hola! Me interesa este modelo: ${name}. ¿Tienen disponibilidad?`;
+        const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        
+        window.open(whatsappUrl, '_blank');
+        
+        trackEvent('whatsapp_inquiry', { product_name: name });
 
         // Efecto visual en el botón
         btn.style.transform = 'scale(0.9)';

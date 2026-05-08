@@ -1160,8 +1160,8 @@ p { max-width: 68ch; }
 
 /* Botón añadir al carrito (flecha circular) */
 .btn-add-cart {
-  width: 40px;
-  height: 40px;
+  width: 48px; /* Un poco más grande */
+  height: 48px;
   border-radius: 50%;
   background: var(--grad-accent);
   color: #fff;
@@ -1169,13 +1169,18 @@ p { max-width: 68ch; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  cursor: pointer;
+  z-index: 10; /* Por encima de la info del card */
+  position: relative;
   transition:
     transform var(--transition-spring),
-    box-shadow var(--transition-normal);
+    box-shadow var(--transition-normal),
+    background var(--transition-fast);
 }
 .btn-add-cart:hover {
-  transform: scale(1.15) rotate(-45deg);
-  box-shadow: 0 4px 16px rgba(124,58,237,0.5);
+  transform: scale(1.1) rotate(-15deg);
+  box-shadow: 0 8px 24px rgba(124,58,237,0.4);
+  background: var(--grad-warm);
 }
 
 /* Navegación personalizada del Swiper */
@@ -1183,22 +1188,34 @@ p { max-width: 68ch; }
 .swiper-button-next {
   background: var(--clr-card);
   border: 1px solid var(--clr-border);
-  width: 50px !important; /* Un poco más grandes para mejor clic */
-  height: 50px !important;
+  width: 54px !important;
+  height: 54px !important;
   border-radius: 50%;
   color: #fff !important;
   transition: all var(--transition-fast), transform var(--transition-spring);
-  z-index: 100 !important; /* Súper alto para ser siempre clicable */
+  z-index: 50 !important; /* Ajustado para no bloquear botones internos si hay overlap */
   pointer-events: auto !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
 
 .swiper-button-prev {
-  left: -25px !important; /* Hacia afuera */
+  left: -60px !important; /* Más afuera para no tapar */
 }
 
 .swiper-button-next {
-  right: -25px !important; /* Hacia afuera */
+  right: -60px !important; /* Más afuera para no tapar */
+}
+
+/* En tablets y móviles, los botones van más adentro o se ocultan si no hay espacio */
+@media (max-width: 1400px) {
+  .swiper-button-prev { left: -20px !important; }
+  .swiper-button-next { right: -20px !important; }
+}
+
+@media (max-width: 1024px) {
+  .swiper-button-prev, .swiper-button-next {
+    display: none !important; /* Usar swiping táctil en móvil */
+  }
 }
 
 .swiper-button-prev:hover,
