@@ -1822,6 +1822,11 @@ p { max-width: 68ch; }
   flex-direction: column;
   align-items: flex-end;
   gap: var(--spacing-sm);
+  pointer-events: none; /* Evita que el contenedor bloquee el carrusel u otros elementos */
+}
+
+.chat-widget > * {
+  pointer-events: auto; /* Permite interacción con el toggle y la ventana de chat */
 }
 
 /* Ventana principal del chat */
