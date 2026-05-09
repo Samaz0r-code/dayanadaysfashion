@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - Dayanadaysfashion</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="logo-transparent-fallback.png">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .catalog-header {
+      padding: 150px 0 50px;
+      text-align: center;
+    }
+    .catalog-title {
+      font-size: var(--fs-display-md);
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      padding-bottom: 100px;
+    }
+    .catalog-item {
+      background: var(--clr-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--clr-border);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .catalog-item:hover {
+      transform: translateY(-5px);
+    }
+    .catalog-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .catalog-item-info {
+      padding: 20px;
+      text-align: center;
+    }
+    .catalog-item-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="site-header" role="banner" style="background: var(--clr-bg-alpha); backdrop-filter: blur(20px);">
+    <nav class="nav container" role="navigation" aria-label="Navegación principal">
+      <a href="index.html" class="nav__logo" aria-label="Dayanadaysfashion - Inicio">
+        <img src="logo-transparent-fallback.png" alt="Logo de Dayanadaysfashion" class="nav__logo-img">
+      </a>
+      <ul class="nav__list" role="list">
+        <li><a href="index.html#hero" class="nav__link">Inicio</a></li>
+        <li><a href="index.html#productos" class="nav__link">Colección</a></li>
+        <li><a href="index.html#categorias" class="nav__link">Categorías</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="index.html" class="btn btn--primary">Volver al Inicio</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container catalog-header">
+      <h1 class="catalog-title" id="catalogTitle">Catálogo</h1>
+      <p class="section-desc">Explora todos los modelos disponibles para tu marca favorita.</p>
+    </section>
+
+    <section class="container">
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Productos generados con JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="nav__logo footer__logo" aria-label="Dayanadaysfashion inicio">
+            <img src="logo-transparent-fallback.png" alt="Logo de Dayanadaysfashion" class="nav__logo-img">
+          </a>
+          <p class="footer__tagline">Tu moda, tu estilo,<br />cada día es un look nuevo.</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <small class="footer__copy">© 2026 Dayanadaysfashion. Todos los derechos reservados.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Inventario hardcodeado
+    const inventory = {
+      adidas: [
+        'adidas-1.jpeg', 'adidas-2.jpeg', 'adidas-3.jpeg', 'adidas-4.jpeg', 'adidas-5.jpeg',
+        'adidas-6.jpeg', 'adidas-7.jpeg', 'adidas-8.jpg', 'adidas-9.jpg', 'adidas-10.jpg'
+      ],
+      nike: [
+        'nike-1.jpeg', 'nike-2.jpeg', 'nike-3.jpeg', 'nike-4.jpeg', 'nike-5.jpeg',
+        'nike-6.jpeg', 'nike-7.jpeg', 'nike-8.jpeg', 'nike-9.jpeg', 'nike-10.jpeg',
+        'nike-11.jpeg', 'nike-12.jpeg', 'nike-13.jpeg', 'nike-14.jpeg', 'nike-15.jpeg',
+        'nike-16.jpeg', 'nike-17.jpeg', 'nike-18.jpeg', 'nike-19.jpeg', 'nike-20.jpg',
+        'nike-21.jpg', 'nike-22.jpg', 'nike-23.jpg', 'nike-24.jpeg', 'nike-25.jpeg',
+        'nike-26.jpeg', 'nike-27.jpeg', 'nike-28.jpeg', 'nike-29.jpeg'
+      ],
+      puma: [
+        'puma-1.jpeg', 'puma-2.jpeg', 'puma-3.jpeg', 'puma-4.jpeg'
+      ]
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const marca = params.get('marca') || 'nike';
+      const marcaKey = marca.toLowerCase();
+      
+      const titleEl = document.getElementById('catalogTitle');
+      const gridEl = document.getElementById('catalogGrid');
+
+      if (inventory[marcaKey]) {
+        titleEl.textContent = `Catálogo ${marcaKey.charAt(0).toUpperCase() + marcaKey.slice(1)}`;
+        const images = inventory[marcaKey];
+        const folder = marcaKey.charAt(0).toUpperCase() + marcaKey.slice(1);
+        
+        images.forEach(img => {
+          const name = img.split('.')[0].replace('-', ' ').toUpperCase();
+          const card = document.createElement('div');
+          card.className = 'catalog-item';
+          card.innerHTML = `
+            <img src="zapatos/${folder}/${img}" alt="${name}" loading="lazy">
+            <div class="catalog-item-info">
+              <h3 class="catalog-item-name">${name}</h3>
+              <button class="btn btn--primary" style="width:100%">Lo Quiero</button>
+            </div>
+          `;
+          gridEl.appendChild(card);
+        });
+      } else {
+        titleEl.textContent = 'Marca no encontrada';
+      }
+    });
+  </script>
+</body>
+</html>

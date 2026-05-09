@@ -564,11 +564,10 @@ p { max-width: 68ch; }
 }
 
 .nav__logo-img {
-  height: 180px; /* Enormemente más grande */
+  height: 125px; /* Reducido un 30% aprox */
   width: auto;
   object-fit: contain;
-  margin-top: 5px; /* Un pequeño margen antes del tope de la pantalla */
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); /* Una sutil sombra para que resalte al colgar */
+  margin-top: 5px;
 }
 
 .logo-mark {
