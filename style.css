@@ -500,13 +500,13 @@ p { max-width: 68ch; }
   transition: opacity var(--dur-fast);
 }
 
-.top-bar__link:hover {
+.launch-banner__link:hover {
   opacity: 1;
 }
 
 /* Ocultar elementos en móvil para ahorrar espacio */
 @media (max-width: 600px) {
-  .top-bar__text, .top-bar__link {
+  .launch-banner__text, .launch-banner__link {
     display: none;
   }
 }
