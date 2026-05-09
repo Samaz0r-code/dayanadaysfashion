@@ -741,7 +741,7 @@ const initCountdown = () => {
     const distance = targetDate - now;
     
     if (distance < 0) {
-      const topBar = document.getElementById('top-bar');
+      const topBar = document.getElementById('launch-banner');
       if (topBar) topBar.innerHTML = '<div class="container" style="text-align:center; font-weight:bold;">🚀 ¡YA ESTAMOS ABIERTOS! DISFRUTA LA COLECCIÓN 2027</div>';
       return;
     }
